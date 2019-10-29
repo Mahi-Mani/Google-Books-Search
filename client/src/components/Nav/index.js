@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./style.css";
+// import "./style.css";
 
 function Nav() {
  return (
    <nav className="navbar navbar-expand-lg navbar-light bg-light">
      <Link className="navbar-brand" to="/">
-       Home
+       Google Book Search
      </Link>
      <div>
        <ul className="navbar-nav">

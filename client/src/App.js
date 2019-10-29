@@ -6,8 +6,8 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { BookList, BookListItem } from "./components/BookList"
 import { Container, Row, Col } from "./components/Grid";
-import { BrowserRouter as Router, Route} from "react-router-dom";
-import Saved from "./components/Saved";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import Saved from "./components/Saved";
 
 class App extends Component {
   state = {
@@ -23,9 +23,12 @@ class App extends Component {
   };
 
   handleFormSubmit = event => {
+    console.log("clicked search button");
     event.preventDefault();
+    console.log(this.state.bookSearch);
     API.getBooks(this.state.bookSearch)
-      .then(res => this.setState({ books: res.data }))
+      .then(res => {console.log(res)
+        this.setState({ books: res.data })})
       .catch(err => console.log(err));
   };
 
@@ -34,15 +37,19 @@ class App extends Component {
     API.updateSaved(true, )
   }
 
+  // <Route exact path="/saved" component={Saved} />
+
   render() {
     return (
       <div>
-        <Nav />
+       
+
         <Router>
+        <Nav />
           <div>
             <Route exact path="/" component={BookList} />
             <Route exact path="/books" component={BookList} />
-            <Route exact path="/saved" component={Saved} />
+
           </div>
         </Router>
         <Jumbotron />
