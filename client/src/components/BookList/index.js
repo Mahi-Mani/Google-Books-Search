@@ -17,8 +17,14 @@ export function BookListItem(props) {
             <h3>{props.title}</h3>
             <h4>{props.author}</h4>
             <p>Description: {props.description}</p>
-            <button type="button" rel="noreferrer noopener" target="_blank" href={props.link}>
-              View
+            <button type="button">
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+              href={props.link}
+            >
+              Go to recipe!
+            </a>
             </button>
             <button type = "button" id={props.id} onClick={() => props.clicked(props.id)}>
                 Save

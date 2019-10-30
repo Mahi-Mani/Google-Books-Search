@@ -27,9 +27,10 @@ class App extends Component {
     event.preventDefault();
     console.log(this.state.bookSearch);
     API.getBooks(this.state.bookSearch)
-      .then(res => {console.log(res)
-        this.setState({ books: res.data })})
-      .catch(err => console.log(err));
+      .then(res => {console.log(res.data)
+        this.setState({ books: res.data })});
+      // .catch(err => console.log(err));
+      console.log(this.state.books);
   };
 
   handleSaved = event => {
@@ -89,7 +90,7 @@ class App extends Component {
                     key={book.title}
                     title={book.title}
                     author={book.author}
-                    link={book.link}
+                    link={book.href}
                     description={book.description}
                     image={book.image}
                     saved={false}
