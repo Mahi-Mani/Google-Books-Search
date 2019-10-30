@@ -1,6 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
 
+console.log("inside apiroutes");
 router.get("/books", (req, res) => {
   console.log("My query word");
   console.log(req.query);

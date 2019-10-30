@@ -8,6 +8,7 @@ export function BookList({ children }) {
 export function BookListItem(props) {
   console.log("Inside book list props " + props);
   console.log(props);
+  let id = props.id;
   return (
     <li className="list-group-item">
       <Container>

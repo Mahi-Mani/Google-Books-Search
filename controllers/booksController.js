@@ -1,5 +1,5 @@
 const db = require("../models");
-
+console.log("Inside Books Controller");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
@@ -16,6 +16,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log("Inside books Controller");
+    console.log(req.body);
     db.Book
       .create(req.body)
       .then(dbModel => res.json(dbModel))

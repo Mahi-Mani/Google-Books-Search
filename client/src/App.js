@@ -50,16 +50,26 @@ class App extends Component {
     console.log(this.state.books);
   };
 
-  // handleSaveButton = event => {
-  //   event.preventDefault();
-  //   // if (this.state.title && this.state.author) {
-  //   API.saveBook({
-  //     title: this.state.title
-  //   })
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  //   // }
-  // }
+  handleSaveButton = (event) => {
+    event.preventDefault();
+    console.log(event.target.id);
+    console.log("Inside save button");
+    // if (this.state.title && this.state.author) {
+    const books = this.state.books.filter(book => book.id == event.target.id);
+    console.log(books);
+    let bookObj = {...books};
+    console.log(bookObj[0]);
+    API.saveBook({
+      title: bookObj[0].volumeInfo.title,
+      author: bookObj[0].volumeInfo.authors[0],
+      link: bookObj[0].volumeInfo.previewLink,
+      description: bookObj[0].volumeInfo.description,
+      image: bookObj[0].volumeInfo.imageLinks.thumbnail 
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    // }
+  }
 
 
   // <Route exact path="/saved" component={Saved} />
@@ -110,7 +120,7 @@ class App extends Component {
             <Col size="xs-12">
               <BookList>
                 {this.state.books.map(book => (
-                  
+
                   <BookListItem
                     key={book.volumeInfo.title}
                     title={book.volumeInfo.title}
@@ -119,6 +129,7 @@ class App extends Component {
                     description={book.volumeInfo.description}
                     image={book.volumeInfo.imageLinks.thumbnail}
                     handleSaveButton={this.handleSaveButton}
+                    id={book.id}
                   />))}
 
               </BookList>
