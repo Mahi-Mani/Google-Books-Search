@@ -11,7 +11,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
-    books: []
+    books: [],
+    bookSearch: ""
   };
 
   // When the component mounts, load all books and save them to this.state.books
@@ -85,8 +86,8 @@ class App extends Component {
                   <Row>
                     <Col size="xs-9 sm-10">
                       <SearchForm
-                        name="title"
-                        value={this.state.title}
+                        name="bookSearch"
+                        value={this.state.bookSearch}
                         onChange={this.handleInputChange}
                         placeholder="Search For a Book"
                       />
@@ -117,8 +118,6 @@ class App extends Component {
                     link={book.volumeInfo.previewLink}
                     description={book.volumeInfo.description}
                     image={book.volumeInfo.imageLinks.thumbnail}
-                    saved={false}
-                    id={book._id}
                     handleSaveButton={this.handleSaveButton}
                   />))}
 
