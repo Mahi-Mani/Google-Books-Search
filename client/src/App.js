@@ -11,9 +11,23 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
-    books: [],
-    bookSearch: ""
+    books: []
   };
+
+  // When the component mounts, load all books and save them to this.state.books
+  // componentDidMount() {
+  //   this.loadBooks();
+  // }
+
+  // // Loads all books  and sets them to this.state.books
+  // loadBooks = () => {
+  //   API.getBooks()
+  //     .then(res => {
+  //       this.setState({ books: res.data })
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -27,26 +41,35 @@ class App extends Component {
     event.preventDefault();
     console.log(this.state.bookSearch);
     API.getBooks(this.state.bookSearch)
-      .then(res => {console.log(res.data)
-        this.setState({ books: res.data })});
-      // .catch(err => console.log(err));
-      console.log(this.state.books);
+      .then(res => {
+        console.log(res.data.items)
+        this.setState({ books: res.data.items })
+      });
+    // .catch(err => console.log(err));
+    console.log(this.state.books);
   };
 
-  handleSaved = event => {
-    event.preventDefault();
-    API.updateSaved(true, )
-  }
+  // handleSaveButton = event => {
+  //   event.preventDefault();
+  //   // if (this.state.title && this.state.author) {
+  //   API.saveBook({
+  //     title: this.state.title
+  //   })
+  //     .then(res => this.loadBooks())
+  //     .catch(err => console.log(err));
+  //   // }
+  // }
+
 
   // <Route exact path="/saved" component={Saved} />
 
   render() {
     return (
       <div>
-       
+
 
         <Router>
-        <Nav />
+          <Nav />
           <div>
             <Route exact path="/" component={BookList} />
             <Route exact path="/books" component={BookList} />
@@ -62,8 +85,8 @@ class App extends Component {
                   <Row>
                     <Col size="xs-9 sm-10">
                       <SearchForm
-                        name="bookSearch"
-                        value={this.state.bookSearch}
+                        name="title"
+                        value={this.state.title}
                         onChange={this.handleInputChange}
                         placeholder="Search For a Book"
                       />
@@ -83,22 +106,24 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <BookList>
-              {this.state.books.map(book => {
-                return (
+            <Col size="xs-12">
+              <BookList>
+                {this.state.books.map(book => (
+                  
                   <BookListItem
-                    key={book.title}
-                    title={book.title}
-                    author={book.author}
-                    link={book.href}
-                    description={book.description}
-                    image={book.image}
+                    key={book.volumeInfo.title}
+                    title={book.volumeInfo.title}
+                    author={book.volumeInfo.authors}
+                    link={book.volumeInfo.previewLink}
+                    description={book.volumeInfo.description}
+                    image={book.volumeInfo.imageLinks.thumbnail}
                     saved={false}
                     id={book._id}
-                  />
-                );
-              })}
-            </BookList>
+                    handleSaveButton={this.handleSaveButton}
+                  />))}
+
+              </BookList>
+            </Col>
           </Row>
         </Container>
       </div>

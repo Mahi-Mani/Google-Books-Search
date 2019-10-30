@@ -6,6 +6,8 @@ export function BookList({ children }) {
 }
 
 export function BookListItem(props) {
+  console.log("Inside book list props " + props);
+  console.log(props);
   return (
     <li className="list-group-item">
       <Container>
@@ -23,10 +25,10 @@ export function BookListItem(props) {
               target="_blank"
               href={props.link}
             >
-              Go to recipe!
+              View Book Here!
             </a>
             </button>
-            <button type = "button" id={props.id} onClick={() => props.clicked(props.id)}>
+            <button type = "button" id={props.id} onClick={props.handleSaveButton}>
                 Save
             </button>
           </Col>
