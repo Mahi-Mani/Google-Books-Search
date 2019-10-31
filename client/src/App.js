@@ -3,6 +3,8 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import SearchForm from "./components/SearchForm";
 import Button from "./components/Button";
+import Saved from "./components/Saved";
+// import { SaveList, SaveListItem,Saved } from "./components/Saved"
 import API from "./utils/API";
 import { BookList, BookListItem } from "./components/BookList"
 import { Container, Row, Col } from "./components/Grid";
@@ -68,7 +70,12 @@ class App extends Component {
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));
-    // }
+
+    // API.getBooks(event.target.id)
+    //   .then(res => {
+    //     console.log(res.data.items)
+    //     this.setState({ books: res.data.items })
+    //   })
   }
 
 
@@ -84,7 +91,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={BookList} />
             <Route exact path="/books" component={BookList} />
-
+            <Route exact path="/saved" component={Saved} />
           </div>
         </Router>
         <Jumbotron />
