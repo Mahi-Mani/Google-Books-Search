@@ -4,9 +4,13 @@ console.log("Inside Books Controller");
 module.exports = {
   findAll: function(req, res) {
     db.Book
-      .find(req.query)
+      .find()
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log("GET RESULTS QUERY");
+        console.log(dbModel);
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
@@ -20,7 +24,11 @@ module.exports = {
     console.log(req.body);
     db.Book
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log("POST QUERY RESULTS");
+        console.log(dbModel);
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {

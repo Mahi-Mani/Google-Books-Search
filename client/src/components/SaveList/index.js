@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "../Grid";
 
-export function BookList({ children }) {
+export function SaveList({ children }) {
   console.log({children});
   return <ul className="list-group">{children}</ul>;
 }
 
-export function BookListItem(props) {
+export function SaveListItem(props) {
   console.log("Inside book list props " + props);
   console.log(props);
   let id = props.id;
@@ -21,18 +21,7 @@ export function BookListItem(props) {
             <h3>{props.title}</h3>
             <h4>{props.author}</h4>
             <p>Description: {props.description}</p>
-            <button type="button">
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-              href={props.link}
-            >
-              View Book Here!
-            </a>
-            </button>
-            <button type = "button" id={props.id} onClick={props.handleSaveButton}>
-                Save
-            </button>
+            
           </Col>
         </Row>
       </Container>

@@ -5,6 +5,10 @@ export default {
     return axios.get("/api/books", { params: { q: query } });
   },
 
+  getSavedBooks: function() {
+    return axios.get("/api/books/saved");
+  },
+
   saveBook: function(bookData) {
     console.log("Inside API.js first");
     console.log(bookData);

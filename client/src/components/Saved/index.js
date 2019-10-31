@@ -1,44 +1,32 @@
 import React from "react";
 import API from "../../utils/API";
 import { Container, Row, Col } from "../Grid";
+// API.getSavedBooks()
+// .then(res => {
+//   console.log(res.data)
+//   var arr = res.data
+//   arr.map(book => (
+//     <div className="card" style="width: 18rem;">
+//       <div className="card-body">
+//         <h5 className="card-title">{book.title}</h5>
+//         <h6 className="card-subtitle mb-2 text-muted">{book.author}</h6>
+//         <p className="card-text">{book.description}</p>
+//         <a href="#" className="card-link">{book.previewLink}</a>
+//         <a href="#" className="card-link">Another link</a>
+//       </div>
+//     </div>
+//     ))
+// })
 
-function savedBooks() {
-  API.getBooks()
-    .then(res => {
-      console.log(res.data)
-      // this.setState({ books: res.data.items })
-    });
-}
-// <li className="list-group-item">
-//   <Container>
-//     <Row>
-//       <Col size="xs-4 sm-2">
-//         <img alt={props.title} src={props.image} />
-//       </Col>
-//       <Col size="xs-8 sm-9">
-//         <h3>{props.title}</h3>
-//         <h4>{props.author}</h4>
-//         <p>Description: {props.description}</p>
-//         <button type="button">
-//         <a
-//           rel="noreferrer noopener"
-//           target="_blank"
-//           href={props.link}
-//         >
-//           View Book Here!
-//         </a>
-//         </button>
-//         <button type = "button" id={props.id} onClick={props.handleSaveButton}>
-//             Save
-//         </button>
-//       </Col>
-//     </Row>
-//   </Container>
-// </li>
 function Saved() {
   return (
-    savedBooks()
+      <div>
+            {
+              "HI"
+            }
+            </div>
+  
   );
 }
 
-export default Saved
+export default Saved;
