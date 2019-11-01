@@ -15,13 +15,13 @@ This application allows user to search for their desired books and will provide 
 ## Technologies Used
 - HTML : Basic skeleton of application basically used to append react components to DOM
 - Bootstrap : For application styling
-- React : 
-- Mongo :
+- React : Javascript library for building user interfaces
+- Mongo : MongoDB is a cross-platform document oriented database program
 
 ## Application Functioning
 Type `npm start` from command line. This application also requires mongo db to be run on another terminal. Functioning of application is shown below
 
-![Site](gif/VocabularyBuilder1.gif)
+![Site](gif/GoogleBookSearch.gif)
 
 On run of the application, enables user to go ahead and type their desired books. Then application provides you with list of books available online. User can view those books in website by clicking view button. Also, user can save those books and view saved books for future reference.
 
@@ -91,7 +91,9 @@ Had a lot of learning experience with M.E.R.N Stack
 
 ## Author Links
 [LinkedIn](https://www.linkedin.com/in/mahisha-gunasekaran-0a780a88/)
+
 [GitHub](https://github.com/Mahi-Mani)
 ### Collaborators
-Jordon
-Lex
+@Jordon [GitHub](https://github.com/hagoodj)
+
+@Lex [GitHub](https://github.com/flexsant)
