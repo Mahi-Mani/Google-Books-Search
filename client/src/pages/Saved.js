@@ -22,13 +22,11 @@ class Saved extends Component {
     return (
       <div>
         <Nav savedBooks = {this.savedBooks}/>
-        {/* <button onClick={this.savedBooks}>Saved Books</button> */}
         <SaveList>
           
           {this.state.savedBooks.map(book => (
 
             <SaveListItem
-              key={this.savedBooks}
               title={book.title}
               author={book.authors}
               link={book.link}

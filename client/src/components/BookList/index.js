@@ -21,18 +21,18 @@ export function BookListItem(props) {
             <h3>{props.title}</h3>
             <h4>{props.author}</h4>
             <p>Description: {props.description}</p>
-            <button type="button"class="btn btn-info">
+            <button type="button"className="btn btn-info">
             <a
               rel="noreferrer noopener"
               target="_blank"
               href={props.link}
-              class="text-light"
+              className="text-light"
             >
               View
             </a>
             </button>
             
-            <button type = "button" id={props.id} onClick={props.handleSaveButton}class="btn btn-success">
+            <button type = "button" id={props.id} onClick={props.handleSaveButton}className="btn btn-success">
                 Save
             </button>
           </Col>
