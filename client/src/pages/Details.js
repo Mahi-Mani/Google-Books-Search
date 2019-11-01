@@ -3,34 +3,15 @@ import Jumbotron from "../components/Jumbotron";
 import Nav from "../components/Nav";
 import SearchForm from "../components/SearchForm";
 import Button from "../components/Button";
-// import Saved from "./pages/Saved";
-// import { SaveList, SaveListItem,Saved } from "./components/Saved"
 import API from "../utils/API";
 import { BookList, BookListItem } from "../components/BookList"
 import { Container, Row, Col } from "../components/Grid";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import Saved from "./components/Saved";
 
 class Details extends Component {
   state = {
     books: [],
     bookSearch: ""
   };
-
-  // When the component mounts, load all books and save them to this.state.books
-  // componentDidMount() {
-  //   this.loadBooks();
-  // }
-
-  // // Loads all books  and sets them to this.state.books
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res => {
-  //       this.setState({ books: res.data })
-  //     }
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;

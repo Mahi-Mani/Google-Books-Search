@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import "./style.css";
 
-function Nav() {
+function Nav(props) {
  return (
    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5 bg-dark rounded">
      <Link className="navbar-brand" to="/">
@@ -24,15 +24,8 @@ function Nav() {
          </li>
          <li className="nav-item">
            <Link
-             to="/search"
-             className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
-           >
-             Search
-           </Link>
-         </li>
-         <li className="nav-item">
-           <Link
              to="/saved"
+             onClick={props.savedBooks}
              className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
            >
              Saved
