@@ -26,7 +26,7 @@ class Details extends Component {
     console.log(this.state.bookSearch);
     API.getBooks(this.state.bookSearch)
       .then(res => {
-        console.log(res.data.items)
+        console.log(res.data.items);
         this.setState({ books: res.data.items })
       });
     // .catch(err => console.log(err));
@@ -47,7 +47,7 @@ class Details extends Component {
       author: bookObj[0].volumeInfo.authors[0],
       link: bookObj[0].volumeInfo.previewLink,
       description: bookObj[0].volumeInfo.description,
-      image: bookObj[0].volumeInfo.imageLinks.thumbnail 
+      image: bookObj[0].volumeInfo.imageLinks.smallThumbnail 
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));
@@ -63,6 +63,7 @@ class Details extends Component {
   // <Route exact path="/saved" component={Saved} />
 
   render() {
+    console.log(this.state.books);
     return (
       <div>
 
@@ -101,14 +102,14 @@ class Details extends Component {
             <Col size="xs-12">
               <BookList>
                 {this.state.books.map(book => (
-
+                
                   <BookListItem
                     key={book.volumeInfo.title}
                     title={book.volumeInfo.title}
                     author={book.volumeInfo.authors}
                     link={book.volumeInfo.previewLink}
                     description={book.volumeInfo.description}
-                    image={book.volumeInfo.imageLinks.thumbnail}
+                    image={book.volumeInfo.imageLinks.smallThumbnail}
                     handleSaveButton={this.handleSaveButton}
                     id={book.id}
                   />))}
